@@ -1,0 +1,35 @@
+<Feb 13, 2018 10:30:36 AM CET> <Debug> <SecuritySSL> <BEA-000000> <[Thread[[ACTIVE] ExecuteThread: '8' for queue: 'weblogic.kernel.Default (self-tuning)',5,Pooled Threads]]weblogic.security.SSL.jsseadapter: SSLENGINE: SSLEngine.wrap(ByteBuffer,ByteBuffer) called: result=Status = OK HandshakeStatus = NEED_WRAP
+bytesConsumed = 0 bytesProduced = 85.>
+<Feb 13, 2018 10:30:36 AM CET> <Debug> <SecuritySSL> <BEA-000000> <[Thread[[ACTIVE] ExecuteThread: '8' for queue: 'weblogic.kernel.Default (self-tuning)',5,Pooled Threads]]weblogic.security.SSL.jsseadapter: SSLENGINE: SSLEngine.wrap(ByteBuffer,ByteBuffer) called: result=Status = OK HandshakeStatus = NEED_UNWRAP
+bytesConsumed = 0 bytesProduced = 101.>
+<Feb 13, 2018 10:30:36 AM CET> <Debug> <SecuritySSL> <BEA-000000> <[Thread[[ACTIVE] ExecuteThread: '8' for queue: 'weblogic.kernel.Default (self-tuning)',5,Pooled Threads]]weblogic.security.SSL.jsseadapter: SSLENGINE: SSLEngine.unwrap(ByteBuffer,ByteBuffer[]) called: result=Status = BUFFER_UNDERFLOW HandshakeStatus = NEED_UNWRAP
+bytesConsumed = 0 bytesProduced = 0.>
+<Feb 13, 2018 10:30:36 AM CET> <Debug> <SecuritySSL> <BEA-000000> <[Thread[[ACTIVE] ExecuteThread: '8' for queue: 'weblogic.kernel.Default (self-tuning)',5,Pooled Threads]]weblogic.security.SSL.jsseadapter: SSLENGINE: Exception occurred during SSLEngine.unwrap(ByteBuffer,ByteBuffer[]).
+javax.net.ssl.SSLException: Received fatal alert: handshake_failure
+        at sun.security.ssl.Alerts.getSSLException(Alerts.java:208)
+        at sun.security.ssl.SSLEngineImpl.fatal(SSLEngineImpl.java:1619)
+        at sun.security.ssl.SSLEngineImpl.fatal(SSLEngineImpl.java:1587)
+        at sun.security.ssl.SSLEngineImpl.recvAlert(SSLEngineImpl.java:1756)
+        at sun.security.ssl.SSLEngineImpl.readRecord(SSLEngineImpl.java:1060)
+        at sun.security.ssl.SSLEngineImpl.readNetRecord(SSLEngineImpl.java:884)
+        at sun.security.ssl.SSLEngineImpl.unwrap(SSLEngineImpl.java:758)
+        at javax.net.ssl.SSLEngine.unwrap(SSLEngine.java:664)
+        at weblogic.security.SSL.jsseadapter.JaSSLEngine$5.run(JaSSLEngine.java:134)
+        at weblogic.security.SSL.jsseadapter.JaSSLEngine.doAction(JaSSLEngine.java:732)
+        at weblogic.security.SSL.jsseadapter.JaSSLEngine.unwrap(JaSSLEngine.java:132)
+        at weblogic.socket.JSSEFilterImpl.unwrap(JSSEFilterImpl.java:511)
+        at weblogic.socket.JSSEFilterImpl.unwrapAndHandleResults(JSSEFilterImpl.java:454)
+        at weblogic.socket.JSSEFilterImpl.doHandshake(JSSEFilterImpl.java:82)
+        at weblogic.socket.JSSEFilterImpl.handleResultsCommonly(JSSEFilterImpl.java:665)
+        at weblogic.socket.JSSEFilterImpl.handleUnwrapResults(JSSEFilterImpl.java:556)
+        at weblogic.socket.JSSEFilterImpl.unwrapAndHandleResults(JSSEFilterImpl.java:462)
+        at weblogic.socket.JSSEFilterImpl.read(JSSEFilterImpl.java:376)
+        at weblogic.socket.JSSESocket$JSSEInputStream.read(JSSESocket.java:60)
+        at java.io.BufferedInputStream.fill(BufferedInputStream.java:235)
+        at java.io.BufferedInputStream.read1(BufferedInputStream.java:275)
+        at java.io.BufferedInputStream.read(BufferedInputStream.java:334)
+        at weblogic.net.http.MessageHeader.isHTTP(MessageHeader.java:226)
+        at weblogic.net.http.MessageHeader.parseHeader(MessageHeader.java:148)
+        at weblogic.net.http.HttpClient.parseHTTP(HttpClient.java:478)
+        at weblogic.net.http.HttpURLConnection.getInputStream(HttpURLConnection.java:412)
+        at weblogic.net.http.SOAPHttpsURLConnection.getInputStream(SOAPHttpsURLConnection.java:37)
